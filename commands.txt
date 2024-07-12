@@ -1,0 +1,11 @@
+commands
+------
+#retrive secrets 
+aws secretsmanager get-secret-value --secret-id devloper-secrets1 --query SecretString --output text
+aws configure
+aws configure --profile  root
+aws sts get-caller-identity
+cat ..\..\..\.kube\config  
+kubectl edit -n kube-system configmap/aws-auth
+kubectl auth can-i create  svc  
+kubectl auth can-i * * 

@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    env: dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: dev
+  template:
+    metadata:
+      labels:
+        env: dev
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: "0.5"  # Example CPU limit
+            memory: "512Mi"  # Example memory limit
+          requests:
+            cpu: "0.25"  # Example CPU request
+            memory: "256Mi"  # Example memory request
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc
+  labels:
+    env: dev
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80   # Port exposed by the service
+    targetPort: 80   # Port on the Pod
+  selector:
+    env: dev   # Label selector matching your Pod(s)
