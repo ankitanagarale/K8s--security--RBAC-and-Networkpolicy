@@ -1,4 +1,3 @@
-
 # Base Image
 
 FROM node:lts-alpine3.17
@@ -25,3 +24,4 @@ EXPOSE 3000
 # Entry for CMD 
 
 CMD [ "node", "server.js" ]
+

@@ -19,14 +19,6 @@ spec:
         image: 891377353125.dkr.ecr.us-east-1.amazonaws.com/security-ecr1:v1.0.0.RELEASE
         ports:
         - containerPort: 3000
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-
         
 
 ---
@@ -43,3 +35,8 @@ spec:
       port: 80
       targetPort: 3000
   type: LoadBalancer
+
+
+
+
+
