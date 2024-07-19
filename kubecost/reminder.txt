@@ -1,0 +1,6 @@
+for installing kubecost attach pvc using pvc-kubecost.yaml
+and for this storage class shoud be ebs.csi.aws
+
+note :
+installing Kubecost using these yaml file will get error like pod will  be in pending state because persistent volume will be not attached properly  for this need to create and attach different pv and attach storage class of ebs.csi.aws 
+ check for storage class by default it will attach kubernetes.io/aws-ebs  we need to attach this ebs.csi.aws
